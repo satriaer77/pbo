@@ -1,25 +1,23 @@
 #include <iostream>
 #include <list>
 #include <iterator>
-
+#include "Student.h"
 
 using namespace std;
-#include "Mahasiswa.h"
+
 
 class Prodi 
 {
     private :
         string namaProdi,kodeProdi;
         list<Student> mahasiswa;
-        typedef list<Student>::iterator mhsIt;
-
 
     public :
-        Prodi(sting nama = "default" , string kode = "P-000", Student mhs)
+        Prodi(string nama = "default" , string kode ="P-000", Student mhs = {"210411100000","default","default",1})
         {
             this->namaProdi = nama;
             this->kodeProdi = kode;
-            this->mahasiswa.insert(this->mahasiswa.begin(),mhs);
+            //this->mahasiswa.insert(this->mahasiswa.begin(),mhs);
         }
 
         void setDataNama(char mthd = 'i', string nama="default")
@@ -28,7 +26,7 @@ class Prodi
 
             if(mthd == 'i')
             {
-                cout<< "Input Nama Prodi : ";
+                cout<< "=>Input Nama Prodi : ";
                 getline(cin >> ws,inputNamaProdi);   
             }
             else
@@ -44,7 +42,7 @@ class Prodi
 
             if(mthd == 'i')
             {
-                cout<< "Input Kode Prodi : ";
+                cout<< "=>Input Kode Prodi : ";
                 getline(cin >> ws,inputKodeProdi);   
             }
             else
@@ -54,15 +52,85 @@ class Prodi
             this->kodeProdi = inputKodeProdi;
         }
 
-        void addStudent(Student mhs)
+        void setDataAll()
         {
-            for(this->mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
-                {
-                    if(i->getDataNama() == "Jaka")
-                    {
-                        this->mahasiswa.insert(this->mahasiswa.begin(),mhs.setAllData());
-                    }
-                }
+            this->setDataNama('i');
+            this->setDataKode('i');
         }
 
-}
+        void addStudent(Student mhs)
+        {
+            mhs.setDataAll();
+            this->mahasiswa.insert(this->mahasiswa.begin(), mhs);
+        }
+
+        void displayStudents()
+        {
+            typedef list<Student>::iterator mhsIt;
+            for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
+            {
+                i->printStudentData();
+            }
+        }
+        void editStudent(string idKeyword)
+        {
+            typedef list<Student>::iterator mhsIt;
+            for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
+            {
+                if(idKeyword == i->getDataId())
+                {
+                    i->printStudentData();
+                    i->setDataAll();
+                }
+                
+            }
+        }
+
+        bool searchStudent(string idKeyword)
+        {
+            typedef list<Student>::iterator mhsIt;
+            for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
+            {
+                if(idKeyword == i->getDataId())
+                {
+                    i->printStudentData();
+                    return true;
+                }
+            }
+        }
+
+        string getDataNama()
+        {
+            return this->namaProdi;
+        }
+        string getKodeProdi()
+        {
+            return this->kodeProdi;
+        }
+        void addStudentKhs(string idKeyword)
+        {
+            typedef list<Student>::iterator mhsIt;
+            for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
+            {
+                if(idKeyword == i->getDataId())
+                {
+                    i->addDataKhs('i');
+                }
+            }
+        }
+        void getKhs(string idKeyword)
+        {
+            typedef list<Student>::iterator mhsIt;
+            for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
+            {
+                if(idKeyword == i->getDataId())
+                {
+                    i->printDataKhs(idKeyword);
+                }
+            }
+
+        }
+
+
+
+};
