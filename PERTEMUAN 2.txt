@@ -1,0 +1,25 @@
++-----------+
+|    PBO    |
++-----------+
+- August,31 2022 -
+
+
+
+Why OOP needed?
+
+- modularity (can connect each other)
+- Productivity ()
+- Reusability (Code in can used in another stuff)
+- Security (Can using as layering programming)
+- Visibility ()
+
+
+
+OOP 
+
+- Polymorphism
+- Abstraction
+- Class
+- Interface
+- Enscapsulation
+- Onject

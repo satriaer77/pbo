@@ -1,0 +1,23 @@
++-----------+
+|    PBO    |
++-----------+
+- September,7 2022 -
+
+
+4 old method :
+- constructor
+- setter
+- getter
+- desturctor
+
+
+Tugas : *note data binding c++
+Membuat program pengelolaan mahasiswa dan mata kuliah 
+Mahasiswa
+-NIM
+-Nama
+
+Matakuliah
+- Mata Kuliah
+- Nilai
+- SKS
