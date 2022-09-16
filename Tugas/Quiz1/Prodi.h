@@ -88,15 +88,17 @@ class Prodi
 
         bool searchStudent(string idKeyword)
         {
+            bool a = false;
             typedef list<Student>::iterator mhsIt;
             for(mhsIt i=this->mahasiswa.begin();i != this->mahasiswa.end();++i)
             {
                 if(idKeyword == i->getDataId())
                 {
                     i->printStudentData();
-                    return true;
+                    a = true;
                 }
             }
+            return a;
         }
 
         string getDataNama()
