@@ -1,0 +1,35 @@
+  +----------------+
+  |      PBO       |
+  +----------------+
+- September, 21 2022 -
+
+
+= Dynamic Array using Pointer = 
+
+ex. 
+ int *pArray = new int[const]
+
+syntax new digunakan untuk memesan memori kedalam heap bukan stack lagi
+
+ Pointer of array, int *pArray[const]
+
+
+*== NOTE ==*
+pointer lebih useful digunakkan dalam type data
+
+pointer hanya digunakan untuk menyimpan alamat dari memory
+
+menghubungkan antar kelas pada C++ bisa menggunakan syntax friend class
+
+
+dynamic array pointer 
+
+void Mahasiswa::setKhs(Khs *value)
+{
+  this->khs[getCounter()] = vkhs;
+  this->setCounter();
+}
+
+* ==> Vocab :
+
+- ORM (Object Relational Management)
