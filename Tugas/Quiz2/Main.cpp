@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
                 {
                     if(progamStudi.getDataNama() == "default")
                     {
-                        cout<<"!! Karena prodi belum dibuat maka inisialisai prodi terlebih dahulu\n";
+                        cout<<"\n!! Karena prodi belum dibuat maka inisialisai prodi terlebih dahulu\n";
                         cout<<"Buat Prodi\n";
                         progamStudi.setDataAll();
                     }
@@ -53,7 +53,8 @@ int main(int argc, char *argv[])
                               "| 4. Edit Mata Kuliah    |\n"
                               "| 5. Tampilkan Mahasiswa |\n"
                               "| 6. Tampilkan Matkul    |\n"
-                              "| 7. Logout              |\n"
+                              "| 7. Delete Mahasiswa    |\n"
+                              "| 8. Logout              |\n"
                               "==========================\n"
                               "\n -> Pilih Menu : ";
                         cin >> menu;
@@ -67,8 +68,10 @@ int main(int argc, char *argv[])
                                 daftarMataKuliah.insert(daftarMataKuliah.begin(), matkul);
                                 break;
                             case 3:
+                            
                                 progamStudi.setDataAll();
                                 break;
+                                
                             case 4:
                                 cout<<"\n=> Masukkan Kode Mata Kuliah : ";
                                 getline(cin >> ws,inputKodeMatkul); 
@@ -94,12 +97,30 @@ int main(int argc, char *argv[])
 
                             case 6:
                                 
+                                cout<<"\n--- Daftar MataKuliah ---\n";
                                 for(matkulIt i=daftarMataKuliah.begin();i != daftarMataKuliah.end();++i)
                                 {
+                                    
                                     i->printMataKuliah();    
                                 }
                                 break;
-                            case 7:
+                            case 7 :
+                            {
+                                string studentId;
+                                bool founded = false;
+                                cout<<"\n=> Ketikkan NIM anda : ";
+                                getline(cin >> ws,studentId);
+                                founded = progamStudi.deleteStudent(studentId);
+                                if(founded == true)
+                                {
+                                    cout<<"Data berhasil di hapus";
+                                }
+                                else 
+                                {
+                                    cout<<"!Data gagal dihapus silahkan cek kembali inputan NIM!";
+                                }
+                            }
+                            case 8:
                                 stopProgramAdmin = true;
                                 break;
                             default :
@@ -155,7 +176,7 @@ int main(int argc, char *argv[])
                                 stopProgramMahasiswa = true;
                                 break;
                             default:
-                                cout<<"!!Menu yang anda pilih tidak ada di daftar!!, silahkan pilih kembali\n";
+                                cout<<"\n\n!!Menu yang anda pilih tidak ada di daftar!!, silahkan pilih kembali\n";
                                 break;
 
                         }
@@ -163,7 +184,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    cout<<"!! NIM yang anda cari tidak ditemukan\n";
+                    cout<<"\n!! NIM yang anda cari tidak ditemukan\n";
                     
                 }
                 
@@ -174,7 +195,7 @@ int main(int argc, char *argv[])
                 break;
 
             default:
-                cout<<"!!Role/Menu yang anda pilih tidak ada di daftar!!, silahkan pilih kembali\n";
+                cout<<"\n!!Role/Menu yang anda pilih tidak ada di daftar!!, silahkan pilih kembali\n";
                 break;
         }
     

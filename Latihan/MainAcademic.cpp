@@ -63,8 +63,7 @@ int main()
                 cout<<"Hapus Mahasiswa";
                 break;
             case 4:
-
-                
+            
                 cout<<"-> Cari NIM Mahasiswa :";
                 cin >> searchNim;
 
